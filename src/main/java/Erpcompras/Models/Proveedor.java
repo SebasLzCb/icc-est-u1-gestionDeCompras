@@ -1,25 +1,34 @@
 package Erpcompras.Models;
 
-public class Proveedor extends Persona {
-    private String ruc;
-    private String empresa;
+public class Proveedor {
+    private int id;
+    private String nombre;
+    private String contacto;
 
-    public Proveedor(String cedula, String nombre, String ruc, String empresa) {
-        super(cedula, nombre);
-        this.ruc = ruc;
-        this.empresa = empresa;
+    public Proveedor(int id, String nombre, String contacto) {
+        this.id = id;
+        this.nombre = nombre;
+        this.contacto = contacto;
     }
 
-    public String getRuc() {
-        return ruc;
+    public int getId() {
+        return id;
     }
 
-    public String getEmpresa() {
-        return empresa;
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getContacto() {
+        return contacto;
     }
 
     @Override
-    public void mostrarInformacion() {
-        
+    public String toString() {
+        return "Proveedor{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", contacto='" + contacto + '\'' +
+                '}';
     }
 }
