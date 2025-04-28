@@ -1,24 +1,19 @@
 package Erpcompras.Models;
 
-import Erpcompras.util.Calculable;
-import Erpcompras.util.EstadoSolicitud;
-
-public class Producto implements Calculable {
-    private String id;
+public abstract class Producto {
+    private int id;
     private String nombre;
     private double precioUnitario;
-    private int cantidad;
-    private EstadoSolicitud estado;
+    private UnidadMedida unidad;
 
-    public Producto(String id, String nombre, double precioUnitario, int cantidad, EstadoSolicitud estado) {
+    public Producto(int id, String nombre, double precioUnitario, UnidadMedida unidad) {
         this.id = id;
         this.nombre = nombre;
         this.precioUnitario = precioUnitario;
-        this.cantidad = cantidad;
-        this.estado = estado;
+        this.unidad = unidad;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -30,16 +25,19 @@ public class Producto implements Calculable {
         return precioUnitario;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public UnidadMedida getUnidad() {
+        return unidad;
     }
 
-    public EstadoSolicitud getEstado() {
-        return estado;
-    }
+    public abstract double calcularSubTotal();
 
     @Override
-    public double calcularCostoTotal() {
-        return 0;
+    public String toString() {
+        return "Producto{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", precioUnitario=" + precioUnitario +
+                ", unidad=" + unidad +
+                '}';
     }
 }
