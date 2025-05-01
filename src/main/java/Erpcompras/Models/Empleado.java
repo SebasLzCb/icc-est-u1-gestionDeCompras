@@ -6,6 +6,7 @@ public class Empleado extends Persona {
     public Empleado(String nombre, String apellido, String dni, Departamento departamento) {
         super(nombre, apellido, dni);
         this.departamento = departamento;
+
     }
 
     public Departamento getDepartamento() { return departamento; }
