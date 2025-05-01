@@ -15,6 +15,7 @@ public class DetalleSolicitud {
 
     public int getCantidad() {
         return cantidad;
+
     }
 
     public double calcularSubTotal() {
