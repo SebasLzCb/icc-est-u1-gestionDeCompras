@@ -35,6 +35,6 @@ public class ProductoDulce extends Producto {
     public String toString() {
         return super.toString() +
                 "\nSabor:" + sabor +
-                "\nProveedor:" + (proveedor !=null? proveedor.getNombre(): "Sin proveedora signado")
+                "\nProveedor:" + (proveedor !=null? proveedor.getNombre(): "Sin proveedor asignado");
     }
 }
