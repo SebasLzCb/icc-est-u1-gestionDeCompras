@@ -46,11 +46,10 @@ public class SolicitudCompra {
 
     @Override
     public String toString() {
-        return "SolicitudCompra{" +
-                "numero=" + numero +
-                ", proveedor=" + proveedor.getNombre() +
-                ", estado=" + estado +
-                ", total=" + calcularTotal() +
-                '}';
+        return "SolicitudCompra:" +
+                "\nnumero=" + numero +
+                "\nproveedor=" + proveedor.getNombre() +
+                "\nestado=" + estado +
+                "\ntotal=" + calcularTotal();
     }
 }
