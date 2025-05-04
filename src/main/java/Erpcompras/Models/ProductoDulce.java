@@ -10,12 +10,31 @@ public class ProductoDulce extends Producto {
         this.proveedor = proveedor;
     }
 
-    public String informacionDulce() {
-        return "Sabor: " + sabor;
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public String getSabor() {
+        return sabor;
+    }
+
+    public void setSabor(String sabor) {
+        this.sabor = sabor;
     }
 
     @Override
     public double calcularSubTotal() {
-        return 0;
+        return getPrecioUnitario();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\nSabor:" + sabor +
+                "\nProveedor:" + (proveedor !=null? proveedor.getNombre(): "Sin proveedora signado")
     }
 }
