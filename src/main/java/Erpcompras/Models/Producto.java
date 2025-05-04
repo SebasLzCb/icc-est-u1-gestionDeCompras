@@ -35,10 +35,10 @@ public abstract class Producto {
     @Override
     public String toString() {
         return "Producto{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", precioUnitario=" + precioUnitario +
-                ", unidad=" + unidad +
+                "\nid=" + id +
+                "\nnombre='" + nombre + '\'' +
+                "\nprecioUnitario=" + precioUnitario +
+                "\nunidad=" + unidad +
                 '}';
     }
 }
