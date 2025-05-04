@@ -23,12 +23,23 @@ public class Proveedor {
         return contacto;
     }
 
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     @Override
     public String toString() {
-        return "Proveedor{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", contacto='" + contacto + '\'' +
-                '}';
+        return "Proveedor:" +
+                "\nid=" + id +
+                "\nnombre='" + nombre +
+                "\ncontacto='" + contacto ;
     }
 }
