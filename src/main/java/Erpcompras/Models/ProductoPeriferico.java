@@ -8,10 +8,34 @@ public class ProductoPeriferico extends Producto {
         super(id, nombre, precio, unidad); // 👈 Correcto: llamar al constructor del padre con 4 parámetros
         this.tipo = tipo;
         this.proveedor = proveedor;
+
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
     public double calcularSubTotal() {
-        return 0;
+        return getPrecioUnitario();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\nTipo periférico:" + tipo +
+                "\nProveedor:" + (proveedor !=null? proveedor.getNombre(): "Sin provedor asignado");
     }
 }
