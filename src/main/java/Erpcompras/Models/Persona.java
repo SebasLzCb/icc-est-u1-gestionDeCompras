@@ -4,11 +4,13 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String dni;
+    private int telefono;
 
-    public Persona(String nombre, String apellido, String dni) {
+    public Persona(String nombre, String apellido, String dni, ) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.telefono = telefono;
     }
 
     public String getNombre() { return nombre; }
@@ -20,6 +22,12 @@ public class Persona {
 
     public String getDni() { return dni; }
     public void setDni(String dni) { this.dni = dni; }
+
+    public int getTelefono() { return telefono; }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
 
     @Override
     public String toString() {
