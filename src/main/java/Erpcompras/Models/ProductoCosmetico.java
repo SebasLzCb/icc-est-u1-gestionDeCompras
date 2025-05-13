@@ -5,10 +5,11 @@ public class ProductoCosmetico extends Producto {
     private Proveedor proveedor;
 
     public ProductoCosmetico(int id, String nombre, double precio, UnidadMedida unidad, String descripcion, Proveedor proveedor) {
-        super(id, nombre, precio, unidad); // 👈 Correcto: llamamos al constructor de Producto
+        super(id, nombre, precio, unidad);
         this.descripcion = descripcion;
         this.proveedor = proveedor;
     }
+
     public ProductoCosmetico(int id, String nombre, double precio, UnidadMedida unidad) {
         super(id, nombre, precio, unidad);
     }
@@ -37,7 +38,9 @@ public class ProductoCosmetico extends Producto {
     @Override
     public String toString() {
         return super.toString() +
-                "\nDescripcion:" + descripcion +
-                "\nProveedor:" + (proveedor != null? proveedor.getNombre() : "Sin proveedor asignado") ;
+                "\nDescripción: " + descripcion +
+                "\nProveedor: " + (proveedor != null
+                ? proveedor.getPersona().getNombre() + " " + proveedor.getPersona().getApellido()
+                : "Sin proveedor asignado");
     }
 }
