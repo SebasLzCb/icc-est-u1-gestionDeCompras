@@ -57,11 +57,21 @@ public class Menu {
         int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nombre: ");
         String nombre = scanner.nextLine();
-        System.out.print("Contacto: ");
-        String contacto = scanner.nextLine();
-        proveedores.add(new Proveedor(id, nombre, contacto));
+        System.out.print("Apellido: ");
+        String apellido = scanner.nextLine();
+        System.out.print("DNI: ");
+        String dni = scanner.nextLine();
+        System.out.print("Teléfono: ");
+        int telefono = Integer.parseInt(scanner.nextLine());
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
+
+        Persona persona = new Persona(nombre, apellido, dni, telefono, email);
+        Proveedor proveedor = new Proveedor(id, persona);
+        proveedores.add(proveedor);
         System.out.println("Proveedor registrado.");
     }
+
 
     private void registrarProducto() {
         System.out.print("ID: ");
@@ -73,8 +83,53 @@ public class Menu {
         System.out.print("Unidad de medida (UNIDAD/KILOGRAMO/LITRO/CAJA): ");
         UnidadMedida unidad = UnidadMedida.valueOf(scanner.nextLine().toUpperCase());
 
-        productos.add(new ProductoSimple(id, nombre, precio, unidad));
-        System.out.println("Producto registrado.");
+        // Primero se pide el proveedor
+        System.out.print("ID del proveedor asociado: ");
+        int idProv = Integer.parseInt(scanner.nextLine());
+        Proveedor proveedor = proveedores.stream()
+                .filter(p -> p.getId() == idProv)
+                .findFirst()
+                .orElse(null);
+        if (proveedor == null) {
+            System.out.println("Proveedor no encontrado. No se registró el producto.");
+            return;
+        }
+
+        System.out.println("Tipo de producto:");
+        for (TipoProducto tipo : TipoProducto.values()) {
+            System.out.println("- " + tipo);
+        }
+        System.out.print("Seleccione tipo: ");
+        TipoProducto tipoProducto = TipoProducto.valueOf(scanner.nextLine().toUpperCase());
+
+        Producto producto = null;
+        switch (tipoProducto) {
+            case DULCE -> {
+                System.out.print("Sabor del dulce: ");
+                String sabor = scanner.nextLine();
+                producto = new ProductoDulce(id, nombre, precio, unidad, sabor, proveedor);
+            }
+            case COSMETICO -> {
+                System.out.print("Marca del cosmético: ");
+                String marca = scanner.nextLine();
+                producto = new ProductoCosmetico(id, nombre, precio, unidad, marca, proveedor);
+            }
+            case PERIFERICO -> {
+                System.out.print("Tipo de conexión (USB, BLUETOOTH, etc.): ");
+                String conexion = scanner.nextLine();
+                producto = new ProductoPeriferico(id, nombre, precio, unidad, conexion, proveedor);
+            }
+            case SIMPLE -> {
+                producto = new ProductoSimple(id, nombre, precio, unidad, proveedor);
+            }
+            default -> {
+                System.out.println("Tipo no válido.");
+                return;
+            }
+        }
+
+        productos.add(producto);
+        System.out.println("Producto registrado y enlazado al proveedor.");
     }
 
     private void registrarSolicitud() {
