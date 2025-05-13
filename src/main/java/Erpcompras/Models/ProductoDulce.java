@@ -5,7 +5,7 @@ public class ProductoDulce extends Producto {
     private Proveedor proveedor;
 
     public ProductoDulce(int id, String nombre, double precio, UnidadMedida unidad, String sabor, Proveedor proveedor) {
-        super(id, nombre, precio, unidad); // 👈 Llamamos bien al constructor del padre
+        super(id, nombre, precio, unidad);
         this.sabor = sabor;
         this.proveedor = proveedor;
     }
@@ -34,7 +34,9 @@ public class ProductoDulce extends Producto {
     @Override
     public String toString() {
         return super.toString() +
-                "\nSabor:" + sabor +
-                "\nProveedor:" + (proveedor !=null? proveedor.getNombre(): "Sin proveedor asignado");
+                "\nSabor: " + sabor +
+                "\nProveedor: " + (proveedor != null
+                ? proveedor.getPersona().getNombre() + " " + proveedor.getPersona().getApellido()
+                : "Sin proveedor asignado");
     }
 }
