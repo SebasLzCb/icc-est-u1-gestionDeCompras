@@ -5,6 +5,7 @@ public abstract class Producto {
     private String nombre;
     private double precioUnitario;
     private UnidadMedida unidad;
+    private Proveedor proveedor;
 
     public Producto(int id, String nombre, double precioUnitario, UnidadMedida unidad) {
         this.id = id;
@@ -31,6 +32,14 @@ public abstract class Producto {
     }
 
     public abstract double calcularSubTotal();
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
 
     @Override
     public String toString() {
