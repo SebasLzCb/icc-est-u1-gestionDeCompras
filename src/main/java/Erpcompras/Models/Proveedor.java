@@ -2,44 +2,32 @@ package Erpcompras.Models;
 
 public class Proveedor {
     private int id;
-    private String nombre;
-    private String contacto;
+    private Persona persona;
 
-    public Proveedor(int id, String nombre, String contacto) {
+    public Proveedor(int id, Persona persona) {
         this.id = id;
-        this.nombre = nombre;
-        this.contacto = contacto;
+        this.persona = persona;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Persona getPersona() {
+        return persona;
     }
 
-    public String getContacto() {
-        return contacto;
-    }
-
-    public void setContacto(String contacto) {
-        this.contacto = contacto;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
     @Override
     public String toString() {
         return "Proveedor:" +
-                "\nid=" + id +
-                "\nnombre='" + nombre +
-                "\ncontacto='" + contacto ;
+                "\nID: " + id +
+                "\nNombre: " + persona.getNombre() + " " + persona.getApellido() +
+                "\nDNI: " + persona.getDni() +
+                "\nTeléfono: " + persona.getTelefono() +
+                "\nEmail: " + persona.getEmail();
     }
 }
