@@ -1,6 +1,8 @@
 package Erpcompras.Models;
 
-public abstract class Producto {
+import Erpcompras.util.Calculable;
+
+public abstract class Producto implements Calculable {
     private int id;
     private String nombre;
     private double precioUnitario;
@@ -39,6 +41,11 @@ public abstract class Producto {
 
     public Proveedor getProveedor() {
         return proveedor;
+    }
+
+    @Override
+    public double calcularCostoTotal() {
+        return calcularSubTotal(); // o una lógica más específica
     }
 
     @Override
